@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/app/styles/styles.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -121,5 +122,10 @@
         }
       }
     }},
-  "defaultProject": "code7test"
+    "schematics": {
+      "@schematics/angular:component": {
+        "styleext": "scss"
+      }
+    },    
+    "defaultProject": "code7test"
 }

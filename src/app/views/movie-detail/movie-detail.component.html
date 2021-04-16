@@ -1,0 +1,11 @@
+<a class="goBack" (click)="goBack()"><< Voltar</a>
+<div class="movie-detail">
+    <div class="movie-detail--column --poster" [style.backgroundImage]="'url(' + movie.poster + ')'"></div>
+    <div class="movie-detail--column">
+        <!-- <p>{{movie.nome}} works!</p> -->
+        <h1 class="movie-detail--column-title">{{movie.nome}} <small>{{movie.ano}}</small></h1>
+        <p><b>Diretor</b>: {{movie.diretor}}</p>
+        <p><b>Gênero</b>: {{movie.genero}}</p>
+        <p><b>Descrição</b>: {{movie.descricao}}</p>
+    </div>    
+</div>

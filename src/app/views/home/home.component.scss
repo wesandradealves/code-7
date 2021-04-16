@@ -1,0 +1,75 @@
+@import '../../styles/mixins.scss';
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill);
+    grid-template-rows: repeat(auto-fill);
+    grid-gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+    grid-template-areas:
+      "Item-1 Item-3"
+      "Item-2 Item-3";
+    width: 100%;
+    height: 100vh;  
+    &-item {
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+                overflow: hidden;
+                background-color: red;            
+                grid-area: Item-#{$i};
+            }
+        }  
+        &-inner {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            &:hover [class*="thumbnail"] {
+                transform: scale(1.05)
+            }
+            &--title {
+                z-index: 3;
+                padding: 30px;
+                @include for-phone-only {
+                    font-size: 1rem;
+                    @include for-tablet-portrait-up {
+                        font-size: 1.6rem;
+                        @include for-tablet-landscape-up {
+                            font-size: 2rem;
+                        }
+                    }     
+                }
+
+                text-align: right;
+            }            
+            &--thumbnail {
+                position: absolute;
+                z-index: 1;
+                width: inherit;
+                height: inherit;
+                display: block;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center 0;
+                top: 0;
+                left: 0;    
+                transform-origin: center;
+                transition: all 300ms ease-in-out;
+            }
+            &::after {
+                background: rgba(0,0,0,.7);
+                display: block;
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: inherit;
+                height: inherit; 
+                z-index: 2;               
+            }
+        }
+    }
+}
